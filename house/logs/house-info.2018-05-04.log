@@ -1,0 +1,43 @@
+2018-05-04 21:55:39.030 [main] INFO  [com.mooc.house.HouseApplication:48] - Starting HouseApplication on DESKTOP-RJTUUKK with PID 4564 (started by 14196 in D:\谷歌下载\house)
+2018-05-04 21:55:39.031 [main] INFO  [com.mooc.house.HouseApplication:593] - No active profile set, falling back to default profiles: default
+2018-05-04 21:55:39.082 [main] INFO  [o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext:583] - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5f058f00: startup date [Fri May 04 21:55:39 CST 2018]; root of context hierarchy
+2018-05-04 21:55:39.134 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version:30] - HV000001: Hibernate Validator 5.3.6.Final
+2018-05-04 21:55:40.525 [main] INFO  [org.eclipse.jetty.util.log:192] - Logging initialized @2685ms to org.eclipse.jetty.util.log.Slf4jLog
+2018-05-04 21:55:40.671 [main] INFO  [o.s.b.c.e.j.JettyEmbeddedServletContainerFactory:176] - Server initialized with port: 8090
+2018-05-04 21:55:40.677 [main] INFO  [org.eclipse.jetty.server.Server:373] - jetty-9.4.7.v20170914
+2018-05-04 21:55:40.922 [main] INFO  [org.eclipse.jetty.server.session:364] - DefaultSessionIdManager workerName=node0
+2018-05-04 21:55:40.922 [main] INFO  [org.eclipse.jetty.server.session:369] - No SessionScavenger set, using defaults
+2018-05-04 21:55:40.930 [main] INFO  [org.eclipse.jetty.server.session:149] - Scavenging every 660000ms
+2018-05-04 21:55:40.968 [main] INFO  [o.e.j.server.handler.ContextHandler.application:2221] - Initializing Spring embedded WebApplicationContext
+2018-05-04 21:55:40.969 [main] INFO  [org.springframework.web.context.ContextLoader:276] - Root WebApplicationContext: initialization completed in 1887 ms
+2018-05-04 21:55:41.196 [main] INFO  [o.s.boot.web.servlet.ServletRegistrationBean:190] - Mapping servlet: 'statViewServlet' to [/druid/*]
+2018-05-04 21:55:41.200 [main] INFO  [o.s.boot.web.servlet.ServletRegistrationBean:190] - Mapping servlet: 'dispatcherServlet' to [/]
+2018-05-04 21:55:41.204 [main] INFO  [o.s.boot.web.servlet.FilterRegistrationBean:258] - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-05-04 21:55:41.208 [main] INFO  [o.s.boot.web.servlet.FilterRegistrationBean:258] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-05-04 21:55:41.210 [main] INFO  [o.s.boot.web.servlet.FilterRegistrationBean:258] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-05-04 21:55:41.211 [main] INFO  [o.s.boot.web.servlet.FilterRegistrationBean:258] - Mapping filter: 'requestContextFilter' to: [/*]
+2018-05-04 21:55:41.213 [main] INFO  [o.s.boot.web.servlet.FilterRegistrationBean:271] - Mapping filter: 'logFilter' to urls: [*]
+2018-05-04 21:55:41.224 [main] INFO  [org.eclipse.jetty.server.handler.ContextHandler:788] - Started o.s.b.c.e.j.JettyEmbeddedWebAppContext@3aacf32a{/,[file:///C:/Users/14196/AppData/Local/Temp/jetty-docbase.1195629418520620380.8090/],AVAILABLE}
+2018-05-04 21:55:41.227 [main] INFO  [org.eclipse.jetty.server.Server:441] - Started @3388ms
+2018-05-04 21:55:41.809 [main] INFO  [com.alibaba.druid.pool.DruidDataSource:922] - {dataSource-1} inited
+2018-05-04 21:55:42.669 [main] INFO  [o.s.w.s.m.m.a.RequestMappingHandlerAdapter:534] - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5f058f00: startup date [Fri May 04 21:55:39 CST 2018]; root of context hierarchy
+2018-05-04 21:55:42.743 [main] INFO  [o.s.w.s.m.m.a.RequestMappingHandlerMapping:543] - Mapped "{[/index]}" onto public java.lang.String com.mooc.house.controller.HelloController.index()
+2018-05-04 21:55:42.744 [main] INFO  [o.s.w.s.m.m.a.RequestMappingHandlerMapping:543] - Mapped "{[/hello]}" onto public java.lang.String com.mooc.house.controller.HelloController.hello(org.springframework.ui.Model)
+2018-05-04 21:55:42.745 [main] INFO  [o.s.w.s.m.m.a.RequestMappingHandlerMapping:543] - Mapped "{[/user]}" onto public java.util.List<com.mooc.house.model.User> com.mooc.house.controller.UserController.getUsers()
+2018-05-04 21:55:42.750 [main] INFO  [o.s.w.s.m.m.a.RequestMappingHandlerMapping:543] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-05-04 21:55:42.751 [main] INFO  [o.s.w.s.m.m.a.RequestMappingHandlerMapping:543] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-05-04 21:55:42.804 [main] INFO  [o.s.web.servlet.handler.SimpleUrlHandlerMapping:362] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-05-04 21:55:42.804 [main] INFO  [o.s.web.servlet.handler.SimpleUrlHandlerMapping:362] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-05-04 21:55:42.849 [main] INFO  [o.s.web.servlet.handler.SimpleUrlHandlerMapping:362] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-05-04 21:55:43.066 [main] INFO  [o.s.w.servlet.view.freemarker.FreeMarkerConfigurer:127] - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-05-04 21:55:43.289 [main] INFO  [o.s.jmx.export.annotation.AnnotationMBeanExporter:431] - Registering beans for JMX exposure on startup
+2018-05-04 21:55:43.290 [main] INFO  [o.s.jmx.export.annotation.AnnotationMBeanExporter:916] - Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-05-04 21:55:43.290 [main] INFO  [o.s.jmx.export.annotation.AnnotationMBeanExporter:916] - Bean with name 'statFilter' has been autodetected for JMX exposure
+2018-05-04 21:55:43.295 [main] INFO  [o.s.jmx.export.annotation.AnnotationMBeanExporter:671] - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-05-04 21:55:43.296 [main] INFO  [o.s.jmx.export.annotation.AnnotationMBeanExporter:671] - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter]
+2018-05-04 21:55:43.335 [main] INFO  [o.e.j.server.handler.ContextHandler.application:2221] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-05-04 21:55:43.336 [main] INFO  [org.springframework.web.servlet.DispatcherServlet:489] - FrameworkServlet 'dispatcherServlet': initialization started
+2018-05-04 21:55:43.355 [main] INFO  [org.springframework.web.servlet.DispatcherServlet:508] - FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+2018-05-04 21:55:43.392 [main] INFO  [org.eclipse.jetty.server.AbstractConnector:286] - Started ServerConnector@5cbf9e9f{HTTP/1.1,[http/1.1]}{0.0.0.0:8090}
+2018-05-04 21:55:43.393 [main] INFO  [o.s.b.c.e.jetty.JettyEmbeddedServletContainer:155] - Jetty started on port(s) 8090 (http/1.1)
+2018-05-04 21:55:43.399 [main] INFO  [com.mooc.house.HouseApplication:57] - Started HouseApplication in 4.612 seconds (JVM running for 5.56)
