@@ -20,7 +20,6 @@
 
 
    function nextPage(pageNum, pageSize) {
-alert(1);
     if ($('#searchForm').length != 0) {
         var url = $('#searchForm').attr('action');
         var data = "?pageNum=" + pageNum + "&pageSize=" + pageSize + "&" + $('#searchForm').serialize();

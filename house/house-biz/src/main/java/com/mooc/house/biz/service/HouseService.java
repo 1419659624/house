@@ -12,8 +12,12 @@ import com.google.common.collect.Lists;
 import com.mooc.house.biz.mapper.HouseMapper;
 import com.mooc.house.common.model.Community;
 import com.mooc.house.common.model.House;
+import com.mooc.house.common.model.HouseUser;
+import com.mooc.house.common.model.User;
+import com.mooc.house.common.model.UserMsg;
 import com.mooc.house.common.page.PageData;
 import com.mooc.house.common.page.PageParams;
+import com.mooc.house.common.utils.BeanHelper;
 
 @Service
 public class HouseService {
@@ -24,7 +28,11 @@ public class HouseService {
 	@Value("${file.prefix}")
 	private String imgPrefix;
 
-
+	@Autowired
+	private AgencyService agencyService;
+	
+	@Autowired
+	private MailService mailService;
 
 	/**
 	 * 1.查询小区
@@ -57,6 +65,31 @@ public class HouseService {
 		    h.setFloorPlanList(h.getFloorPlanList().stream().map(pic -> imgPrefix + pic).collect(Collectors.toList()));
 		});
 		return houses;
+	}
+
+
+	public House queryOneHouse(Long id) {
+		House query=new House();
+		query.setId(id);
+		List<House> houses = queryAndSetImg(query, PageParams.build(1, 1));
+		if(!houses.isEmpty()){
+			return houses.get(0);
+		}
+		return null;
+	}
+
+
+	public void addUserMsg(UserMsg userMsg) {
+        BeanHelper.onInsert(userMsg);
+        houseMapper.insertUserMsg(userMsg);
+        User agent = agencyService.getAgentDeail(userMsg.getAgentId());
+        mailService.sendMail("来自用户"+userMsg.getEmail()+"的留言", userMsg.getMsg(), agent.getEmail());
+		
+	}
+	
+	public HouseUser getHouseUser(Long houseId){
+		HouseUser houseUser =  houseMapper.selectSaleHouseUser(houseId);
+		return houseUser;
 	}
 
 

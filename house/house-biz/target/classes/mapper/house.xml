@@ -111,12 +111,12 @@
 <!--      where house_id = #{id} and user_id = #{userId} and type = #{type} -->
 <!--    </select> -->
    
-<!--    <select id="selectSaleHouseUser" resultType="houseUser"> -->
-<!--      select id,house_id,user_id,create_time,type -->
-<!--      from house_user -->
-<!--      where house_id = #{id} and  type = 1 -->
-<!--      limit 1 -->
-<!--    </select> -->
+   <select id="selectSaleHouseUser" resultType="houseUser">
+     select id,house_id,user_id,create_time,type
+     from house_user
+     where house_id = #{id} and  type = 1
+     limit 1
+   </select>
    
 <!--    <update id="updateHouse"> -->
 <!--       update house -->
@@ -186,22 +186,22 @@
                      
 <!--    </insert> -->
    
-<!--      <insert id="insertUserMsg"> -->
-<!--      insert into house_msg ( -->
-<!--                      msg, -->
-<!--                      create_time, -->
-<!--                      user_name, -->
-<!--                      house_id, -->
-<!--                      agent_id -->
-<!--                      ) -->
-<!--                      value( -->
-<!--                       #{msg}, -->
-<!--                       #{createTime}, -->
-<!--                       #{userName}, -->
-<!--                       #{houseId}, -->
-<!--                       #{agentId} -->
-<!--                      ) -->
-<!--     </insert> -->
+     <insert id="insertUserMsg">
+     insert into house_msg (
+                     msg,
+                     create_time,
+                     user_name,
+                     house_id,
+                     agent_id
+                     )
+                     value(
+                      #{msg},
+                      #{createTime},
+                      #{userName},
+                      #{houseId},
+                      #{agentId}
+                     )
+    </insert>
     
 <!--     <delete id="deleteHouseUser"> -->
 <!--       delete from house_user -->
