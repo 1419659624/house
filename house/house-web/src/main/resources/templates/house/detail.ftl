@@ -193,7 +193,7 @@
                                                 </div>
                                     <header><h2 class="no-border">Comments</h2></header>
                                     <ul class="comments">
-                                   <#--   <#list commentList as comment> 
+                                 <#--     <#list commentList as comment> 
                                         <li class="comment" style="width: 830px;">
                                             <figure>
                                                 <div class="image">
@@ -244,7 +244,20 @@
                         </aside><!-- /#edit-search -->
                         <aside id="featured-properties">
                             <header><h3>热门房产</h3></header>
-                            
+                            <#list recomHouses as house>
+                            <div class="property small">
+                                <a href="/house/detail?id=${house.id}">
+                                    <div class="property-image">
+                                        <img alt="" src="${(house.firstImg)!}" style="width: 100px;height: 75px">
+                                    </div>
+                                </a>
+                                <div class="info">
+                                    <a href="/house/detail?id=${house.id}"><h4>${(house.name)!}</h4></a>
+                                    <figure>${(house.address)!} </figure>
+                                    <div class="tag price">￥${(house.price)!}</div>
+                                </div>
+                            </div><!-- /.property -->
+                            </#list>
                         </aside><!-- /#featured-properties -->
                        
                     </section><!-- /#sidebar -->

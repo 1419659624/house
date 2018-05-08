@@ -3,13 +3,16 @@ package com.mooc.house.biz.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.mooc.house.biz.mapper.HouseMapper;
+import com.mooc.house.common.constants.HouseUserType;
 import com.mooc.house.common.model.Community;
 import com.mooc.house.common.model.House;
 import com.mooc.house.common.model.HouseUser;
@@ -33,6 +36,9 @@ public class HouseService {
 	
 	@Autowired
 	private MailService mailService;
+	
+	@Autowired
+	private FileService fileService;
 
 	/**
 	 * 1.查询小区
@@ -57,7 +63,7 @@ public class HouseService {
 	}
 
 
-	private List<House> queryAndSetImg(House query, PageParams pageParams) {
+	public List<House> queryAndSetImg(House query, PageParams pageParams) {
 		List<House> houses = houseMapper.selectPageHouses(query, pageParams);
 		houses.forEach(h ->{
 			h.setFirstImg(imgPrefix + h.getFirstImg());
@@ -92,5 +98,48 @@ public class HouseService {
 		return houseUser;
 	}
 
+
+	public List<Community> getAllCommunitys() {
+		Community community=new Community();
+		return houseMapper.selectCommunity(community);
+	}
+
+
+	/**
+	 * 添加房屋图片
+	 * 添加户型图片
+	 * 插入房产信息
+	 * 绑定用户到房产的关系
+	 * @param house
+	 * @param user
+	 */
+	public void addHouse(House house, User user) {
+		if (CollectionUtils.isNotEmpty(house.getHouseFiles())) {
+			String images = Joiner.on(",").join(fileService.getImgPaths(house.getHouseFiles()));
+		    house.setImages(images);
+		}
+		if (CollectionUtils.isNotEmpty(house.getFloorPlanFiles())) {
+			String images = Joiner.on(",").join(fileService.getImgPaths(house.getFloorPlanFiles()));
+		    house.setFloorPlan(images);
+		}
+		BeanHelper.onInsert(house);
+		houseMapper.insert(house);
+		bindUser2House(house.getId(),user.getId(),false);
+	}
+
+
+	public void bindUser2House(Long houseId, Long userId, boolean collect) {
+	      HouseUser existhouseUser =     houseMapper.selectHouseUser(userId,houseId,collect ? HouseUserType.BOOKMARK.value : HouseUserType.SALE.value);
+		  if (existhouseUser != null) {
+			  return;
+		  }
+		  HouseUser houseUser = new HouseUser();
+		  houseUser.setHouseId(houseId);
+		  houseUser.setUserId(userId);
+		  houseUser.setType(collect ? HouseUserType.BOOKMARK.value : HouseUserType.SALE.value);
+		  BeanHelper.setDefaultProp(houseUser, HouseUser.class);
+		  BeanHelper.onInsert(houseUser);
+		  houseMapper.insertHouseUser(houseUser);
+		}
 
 }

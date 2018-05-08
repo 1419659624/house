@@ -23,6 +23,8 @@ public interface HouseMapper {
 	public int insertUserMsg(UserMsg userMsg);
 	
 	public HouseUser selectSaleHouseUser(@Param("id") Long houseId);
+
+	public int insert(House house);
 	
 	
 }

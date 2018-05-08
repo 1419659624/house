@@ -51,27 +51,27 @@ public class RecommendService {
     }
 
   }
-//
-//  public List<House> getHotHouse(Integer size) {
-//    House query = new House();
-//    List<Long> list = getHot();
-//    list = list.subList(0, Math.min(list.size(), size));
-//    if (list.isEmpty()) {
-//      return Lists.newArrayList();
-//    }
-//    query.setIds(list);
-//    final List<Long> order = list;
-//    List<House> houses = houseService.queryAndSetImg(query, PageParams.build(size, 1));
-//    Ordering<House> houseSort = Ordering.natural().onResultOf(hs -> {
-//      return order.indexOf(hs.getId());
-//    });
-//    return houseSort.sortedCopy(houses);
-//  }
-//
-//  public List<House> getLastest() {
-//    House query = new House();
-//    query.setSort("create_time");
-//    List<House> houses = houseService.queryAndSetImg(query, new PageParams(8, 1));
-//    return houses;
-//  }
+
+  public List<House> getHotHouse(Integer size) {
+    House query = new House();
+    List<Long> list = getHot();
+    list = list.subList(0, Math.min(list.size(), size));
+    if (list.isEmpty()) {
+      return Lists.newArrayList();
+    }
+    query.setIds(list);
+    final List<Long> order = list;
+    List<House> houses = houseService.queryAndSetImg(query, PageParams.build(size, 1));
+    Ordering<House> houseSort = Ordering.natural().onResultOf(hs -> {
+      return order.indexOf(hs.getId());
+    });
+    return houseSort.sortedCopy(houses);
+  }
+
+  public List<House> getLastest() {
+    House query = new House();
+    query.setSort("create_time");
+    List<House> houses = houseService.queryAndSetImg(query, new PageParams(8, 1));
+    return houses;
+  }
 }

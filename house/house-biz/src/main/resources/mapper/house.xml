@@ -131,46 +131,46 @@
 <!--     </update> -->
    
 
-<!--    <insert id="insert"  useGeneratedKeys="true" keyProperty="id"> -->
-<!--      insert into house( -->
-<!--                      type, -->
-<!--                      name, -->
-<!--                      price, -->
-<!--                      images, -->
-<!--                      area, -->
-<!--                      beds, -->
-<!--                      baths, -->
-<!--                      rating, -->
-<!--                      remarks, -->
-<!--                      properties, -->
-<!--                      floor_plan, -->
-<!--                      tags, -->
-<!--                      create_time, -->
-<!--                      city_id, -->
-<!--                      community_id, -->
-<!--                      address, -->
-<!--                      state -->
-<!--                   ) -->
-<!--                  value( -->
-<!--                      #{type}, -->
-<!--                      #{name}, -->
-<!--                      #{price}, -->
-<!--                      #{images}, -->
-<!--                      #{area}, -->
-<!--                      #{beds}, -->
-<!--                      #{baths}, -->
-<!--                      #{rating}, -->
-<!--                      #{remarks}, -->
-<!--                      #{properties}, -->
-<!--                      #{floorPlan}, -->
-<!--                      #{tags}, -->
-<!--                      #{createTime}, -->
-<!--                      #{cityId}, -->
-<!--                      #{communityId}, -->
-<!--                      #{address}, -->
-<!--                      #{state} -->
-<!--                      ) -->
-<!--    </insert> -->
+   <insert id="insert"  useGeneratedKeys="true" keyProperty="id">
+     insert into house(
+                     type,
+                     name,
+                     price,
+                     images,
+                     area,
+                     beds,
+                     baths,
+                     rating,
+                     remarks,
+                     properties,
+                     floor_plan,
+                     tags,
+                     create_time,
+                     city_id,
+                     community_id,
+                     address,
+                     state
+                  )
+                 value(
+                     #{type},
+                     #{name},
+                     #{price},
+                     #{images},
+                     #{area},
+                     #{beds},
+                     #{baths},
+                     #{rating},
+                     #{remarks},
+                     #{properties},
+                     #{floorPlan},
+                     #{tags},
+                     #{createTime},
+                     #{cityId},
+                     #{communityId},
+                     #{address},
+                     #{state}
+                     )
+   </insert>
    
 <!--    <insert id="insertHouseUser"> -->
 <!--      insert into house_user (house_id, -->
