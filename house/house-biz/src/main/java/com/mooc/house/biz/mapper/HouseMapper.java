@@ -26,5 +26,16 @@ public interface HouseMapper {
 
 	public int insert(House house);
 	
+	public HouseUser selectHouseUser(@Param("userId")Long userId,@Param("id") Long houseId,@Param("type") Integer integer);
+	
+	public int insertHouseUser(HouseUser houseUser);
+	
+	public int updateHouse(House updateHouse);
+
+	public int deleteHouseUser(@Param("id")Long id,@Param("userId") Long userId,@Param("type") Integer value);
+
+	public  int downHouse(Long id);
+
+	
 	
 }
